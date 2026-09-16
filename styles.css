@@ -1,0 +1,421 @@
+/* ========================================= 
+   1. PALETA DE COLORES 
+   ========================================= */ 
+ 
+:root { 
+    --tinta: #183044; 
+    --azul: #123b5d; 
+    --turquesa: #087e8b; 
+    --fondo: #f3f7f8; 
+    --papel: #ffffff; 
+    --borde: #d4e1e5; 
+    --suave: #e7f2f3; 
+ 
+    --ancho: 1100px; 
+} 
+ 
+ 
+/* ========================================= 
+   2. CONFIGURACIÓN GENERAL 
+   ========================================= */ 
+ 
+/* Facilita el cálculo de anchos y espacios. */ 
+* { 
+    box-sizing: border-box; 
+} 
+ 
+/* Desplazamiento suave al utilizar el menú. */ 
+html { 
+    scroll-behavior: smooth; 
+} 
+ 
+/* Estilos generales de toda la página. */ 
+body { 
+    margin: 0; 
+    background: var(--fondo); 
+    color: var(--tinta); 
+ 
+    font-family: Arial, Helvetica, sans-serif; 
+    font-size: 1rem; 
+    line-height: 1.65; 
+} 
+ 
+ 
+/* ========================================= 
+   3. CONTENEDOR PRINCIPAL 
+   ========================================= */ 
+ 
+/* Centra el contenido y limita su ancho. */ 
+.contenedor { 
+    width: 92%; 
+    max-width: var(--ancho); 
+ 
+    margin-left: auto; 
+    margin-right: auto; 
+} 
+ 
+ 
+/* ========================================= 
+   4. ENLACE DE ACCESIBILIDAD 
+   ========================================= */ 
+ 
+/* Oculta visualmente el enlace hasta recibir el foco. */ 
+.salto { 
+    position: absolute; 
+    left: -9999px; 
+    top: 0; 
+ 
+    padding: 0.7rem 1rem; 
+ 
+    background: white; 
+    color: var(--azul); 
+ 
+    z-index: 10; 
+} 
+ 
+/* Permite acceder al enlace usando el teclado. */ 
+.salto:focus { 
+    left: 0.5rem; 
+    top: 0.5rem; 
+} 
+ 
+ 
+/* ========================================= 
+   5. CABECERA 
+   ========================================= */ 
+ 
+.cabecera { 
+    padding: 2.5rem 0 1.5rem; 
+ 
+    background: var(--azul); 
+    color: white; 
+ 
+    border-bottom: 6px solid var(--turquesa); 
+} 
+ 
+/* Texto pequeño superior. */ 
+.sobrelinea { 
+    margin: 0 0 0.4rem; 
+ 
+    color: #bfe9e8; 
+ 
+    font-size: 0.9rem; 
+    font-weight: bold; 
+ 
+    letter-spacing: 0.08em; 
+    text-transform: uppercase; 
+} 
+ 
+/* Título principal con tamaño fluido. */ 
+h1 { 
+    max-width: 850px; 
+    margin: 0; 
+ 
+    font-size: clamp(2rem, 5vw, 3.6rem); 
+    line-height: 1.12; 
+} 
+ 
+/* Descripción debajo del título. */ 
+.bajada { 
+    max-width: 700px; 
+    font-size: 1.15rem; 
+} 
+ 
+ 
+/* ========================================= 
+   6. MENÚ DE NAVEGACIÓN 
+   ========================================= */ 
+ 
+/* Espacio entre la descripción y el menú. */ 
+.navegacion { 
+    margin-top: 1.5rem; 
+} 
+ 
+/* Los enlaces se acomodan en varias líneas 
+   cuando ya no existe espacio horizontal. */ 
+.navegacion a { 
+    display: inline-block; 
+ 
+    margin: 0.25rem 0.35rem 0.25rem 0; 
+    padding: 0.55rem 0.85rem; 
+ 
+    border: 1px solid #7197ad; 
+    border-radius: 0.45rem; 
+ 
+    color: white; 
+    text-decoration: none; 
+    font-weight: bold; 
+} 
+ 
+/* Estados de interacción del menú. */ 
+.navegacion a:hover, 
+.navegacion a:focus { 
+    background: white; 
+    color: var(--azul); 
+ 
+    outline: 3px solid #9de3df; 
+    outline-offset: 2px; 
+} 
+ 
+ 
+/* ========================================= 
+   7. CONTENIDO PRINCIPAL 
+   ========================================= */ 
+ 
+main { 
+    padding-top: 1rem; 
+    padding-bottom: 2rem; 
+} 
+ 
+/* Apariencia de las secciones principales. */ 
+.introduccion, 
+.tema { 
+    margin: 1.5rem 0; 
+    padding: clamp(1rem, 3vw, 2rem); 
+ 
+    background: var(--papel); 
+ 
+    border: 1px solid var(--borde); 
+    border-radius: 0.8rem; 
+} 
+ 
+ 
+/* ========================================= 
+   8. TÍTULOS Y PÁRRAFOS 
+   ========================================= */ 
+ 
+h2 { 
+    margin-top: 0; 
+ 
+    color: var(--azul); 
+    font-size: clamp(1.45rem, 3vw, 2rem); 
+    line-height: 1.25; 
+} 
+ 
+h3 { 
+    margin-top: 0; 
+ 
+    color: var(--turquesa); 
+    font-size: 1.15rem; 
+} 
+ 
+p { 
+    margin-top: 0.5rem; 
+} 
+ 
+ 
+/* ========================================= 
+   9. TARJETAS DE CONTENIDO 
+   ========================================= */ 
+ 
+/* Contenedor tradicional de las tarjetas. 
+   No utiliza Flexbox ni CSS Grid. */ 
+.tarjetas { 
+    width: 100%; 
+    text-align: center; 
+} 
+ 
+/* Cada tarjeta ocupa aproximadamente 
+   un tercio del espacio disponible. 
+   inline-block permite que pasen a otra 
+   línea cuando no caben. */ 
+.tarjeta { 
+    display: inline-block; 
+    vertical-align: top; 
+    text-align: left; 
+ 
+    width: 31%; 
+    min-width: min(100%, 230px); 
+ 
+    margin: 0.5rem 0; 
+    padding: 1.1rem; 
+ 
+    background: #f7fbfc; 
+ 
+    border: 1px solid var(--borde); 
+    border-top: 4px solid var(--turquesa); 
+    border-radius: 0.55rem; 
+} 
+ 
+/* Espacio de las listas dentro de las tarjetas. */ 
+.tarjeta ul { 
+    padding-left: 1.2rem; 
+} 
+ 
+ 
+/* ========================================= 
+   10. NOTAS 
+   ========================================= */ 
+ 
+.nota, 
+.ayuda { 
+    color: #4a6575; 
+    font-size: 0.94rem; 
+} 
+ 
+/* Destaca la nota de la introducción. */ 
+.nota { 
+    padding: 0.8rem 1rem; 
+ 
+    background: var(--suave); 
+ 
+    border-left: 4px solid var(--turquesa); 
+    border-radius: 0.25rem; 
+} 
+ 
+ 
+/* ========================================= 
+   11. GALERÍA DE IMÁGENES 
+   ========================================= */ 
+ 
+/* Distribución tradicional de las imágenes. */ 
+.galeria { 
+    width: 100%; 
+    text-align: center; 
+} 
+ 
+/* Cada figura ocupa aproximadamente 
+   la mitad del espacio disponible. 
+   Si no cabe, pasa a una nueva línea. */ 
+.galeria figure { 
+    display: inline-block; 
+    vertical-align: top; 
+    text-align: left; 
+ 
+    width: 47.8%; 
+    min-width: min(100%, 260px); 
+ 
+    margin: 0.5rem 0; 
+    padding: 0.65rem; 
+ 
+    background: #f7fbfc; 
+ 
+    border: 1px solid var(--borde); 
+    border-radius: 0.6rem; 
+} 
+ 
+/* Las imágenes conservan su proporción 
+   y no sobrepasan el ancho de su figura. */ 
+.galeria img { 
+    display: block; 
+ 
+    width: 100%; 
+    height: auto; 
+    max-width: 100%; 
+ 
+    border-radius: 0.35rem; 
+} 
+ 
+/* Texto descriptivo debajo de cada imagen. */ 
+figcaption { 
+    padding: 0.65rem 0.15rem 0.15rem; 
+    font-weight: bold; 
+} 
+ 
+ 
+/* ========================================= 
+   12. VIDEO
+   ========================================= */ 
+ 
+/* Mantiene el video centrado, más pequeño 
+   y conservando completamente su proporción. */ 
+.marco-video { 
+    width: 100%; 
+    max-width: 650px; 
+ 
+    margin: 1rem auto; 
+ 
+    background: #102b40; 
+    border-radius: 0.5rem; 
+    overflow: hidden; 
+} 
+ 
+/* El reproductor ocupa el ancho disponible 
+   sin recortarse ni deformarse. */ 
+.marco-video video { 
+    display: block; 
+ 
+    width: 100%; 
+    height: auto; 
+    max-width: 100%; 
+ 
+    object-fit: contain; 
+} 
+ 
+ 
+/* ========================================= 
+   13. ENLACES GENERALES 
+   ========================================= */ 
+ 
+a { 
+    color: #086b78; 
+} 
+ 
+/* Indicador visible para navegación con teclado. */ 
+a:focus { 
+    outline: 3px solid #e09f3e; 
+    outline-offset: 3px; 
+} 
+ 
+ 
+/* ========================================= 
+   14. CÓDIGO 
+   ========================================= */ 
+ 
+code { 
+    padding: 0.1rem 0.3rem; 
+ 
+    background: #eaf0f2; 
+    border-radius: 0.25rem; 
+ 
+    font-family: Consolas, "Courier New", monospace; 
+} 
+ 
+ 
+/* ========================================= 
+   15. PIE DE PÁGINA 
+   ========================================= */ 
+ 
+.pie { 
+    padding: 1rem 0; 
+ 
+    background: #102b40; 
+    color: #eaf4f5; 
+ 
+    text-align: center; 
+} 
+ 
+.pie p { 
+    margin: 0; 
+} 
+ 
+ 
+/* ========================================= 
+   16. ADAPTABILIDAD FLUIDA 
+   ========================================= */ 
+ 
+/* 
+   El diseño se adapta sin utilizar: 
+   - Flexbox 
+   - CSS Grid 
+   - Media Queries 
+ 
+   Se emplean: 
+   - Porcentajes 
+   - inline-block 
+   - Anchos máximos 
+   - Anchos mínimos 
+   - min() 
+   - aspect-ratio 
+ 
+   Las tarjetas y figuras pasan a otra línea 
+   cuando su ancho mínimo lo requiere. 
+*/ 
+ 
+/* Evita que las imágenes y videos 
+   sobrepasen el espacio disponible. */ 
+img, 
+video, 
+iframe { 
+    max-width: 100%; 
+}
